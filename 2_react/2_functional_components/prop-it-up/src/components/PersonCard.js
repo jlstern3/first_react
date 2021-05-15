@@ -16,4 +16,4 @@ const PersonCard=(props) => {
     )
 }
 
-export default PersonCard
+export default PersonCard;
