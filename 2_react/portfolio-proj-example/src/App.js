@@ -1,6 +1,8 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import MainContent from './components/MainContent';
+import Projects from './views/Projects';
+
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
       {/* Main Content */}
       <MainContent />
       {/* Projects */}
+      <Projects />
     </div>
   );
 }
