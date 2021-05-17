@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import App from '../App';
 
-const Input = () => {
+const Input = (props) => {
+    // Destructuring state being passed in by App.js
+    const {skillList, setSkillList} = props;
     // Creating State
     const [newSkill, setNewSkill] = useState("");
-    const [skillList, setSkillList] = useState([]);
+    // const [skillList, setSkillList] = useState([]); -- we now passed this into App.js
 
     // Create function for when form is submitted
     const submitHandler=(e)=>{
@@ -19,17 +22,11 @@ const Input = () => {
     }
     return (
         <div>
-            <h3>Skills Form</h3>
+            <h3>Skills Form for {props.name} </h3>
             <form onSubmit={(e) => submitHandler(e)}>
                 <input type="text" name="newSkill" value={newSkill} onChange={(e) => setNewSkill(e.target.value)} />
                 <button>Add Skill</button>
             </form>
-            {
-                // Add second parameter to map and make that the key of each p element to allow React to differentiate between p elements when manipulating the DOM
-                skillList.map((skill, index) => (
-                    <p key={index}>{ skill }</p>
-                ))
-            }
         </div>
     )
 }
