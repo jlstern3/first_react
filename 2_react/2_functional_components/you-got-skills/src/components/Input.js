@@ -26,6 +26,7 @@ const Input = (props) => {
         setSkillList([myNewSkill, ...skillList]);
         // Reset input bar to empty string   so you don't have to keep clearing out data
         setNewSkill("");
+        setSuperSkilled(false);
     }
     return (
         <div>
