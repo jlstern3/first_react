@@ -6,12 +6,22 @@ const UserForm = (props) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConf, setPasswordConf] = useState("");
+    const [firstNameError, setFirstNameError] = useState("");
 
     const createUser = (e) => {
         e.preventDefault();
         const newUser = { firstName, lastName, email, password, passwordConf };
         console.log("Welcome" + newUser);
     };
+
+    const handleFirstName = (e) => {
+        setFirstName(e.target.value);
+        if(e.target.value.length < 2){
+            setFirstNameError("First name must be at least two characters.");
+        }else{
+            setFirstNameError("");
+        }
+    }
 
     return (
         <div className="wrapper">
