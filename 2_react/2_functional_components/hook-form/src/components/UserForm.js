@@ -45,7 +45,12 @@ const UserForm = (props) => {
                 }
                 <div className="input-line"><label>Password Confirmation </label><input type="text" onChange={(e) => setPasswordConf(e.target.value)} /></div>
                 {
-                    passwordConf.val === password.val ?
+                    passwordConf.length > 0 && passwordConf.length < 8 ?
+                    <p>Your password confirmation must be at least 8 characters long</p>
+                    : null
+                }
+                {
+                    password !== passwordConf ?
                     <p>Your password confirmation must match your password.</p>
                     : null
                 }
