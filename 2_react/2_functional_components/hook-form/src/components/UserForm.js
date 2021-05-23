@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const UserForm = (props) => {
+const UserForm = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
