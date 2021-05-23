@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import App from '../App';
+// import App from '../App';
 
 const Input = (props) => {
     // Destructuring state being passed in by App.js
