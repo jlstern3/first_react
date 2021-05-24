@@ -1,4 +1,4 @@
-// import React, {useState} from 'react';
+import React, {useState} from 'react';
 
 const Tabs = (props) => {
     const {tabsArray, setTabsArray} = props;
