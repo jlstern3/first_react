@@ -7,12 +7,7 @@ const ColorForm = () => {
         // function to create new box w/ color value set to color's getter state key
     //     console.log("You created a box");
     // };
-    // const boxStyle = {
-    //     backgroundColor: {color},
-    //     margin: "15px",
-    //     width: "200px",
-    //     height: "200px",
-    // };
+
 
     const[newColor, setNewColor] = useState("");
     const[boxList, setBoxList] = useState([]);
@@ -35,10 +30,9 @@ const ColorForm = () => {
             </form>
             {
                 boxList.map((color, colorListIndex) => (
-                    <p key={colorListIndex}>{color}</p>
+                    <p key={colorListIndex} style={{width: "200px", height: "200px", border: "1px solid black", display: "inline-block", margin: "20px", overflow: "scroll",}}>{color}</p>
                 ))
             }
-            {/* <div style={boxStyle}>Placeholder</div> */}
         </div>
     )
 }
