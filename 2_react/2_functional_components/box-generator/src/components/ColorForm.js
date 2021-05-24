@@ -12,6 +12,7 @@ const ColorForm = (props) => {
     }
     return(
         <div>
+            {/* Does this just need to be onSumibt = {submitHandler}? */}
             <form onSubmit={(e) => submitHandler(e)}>
                 <label>Color</label>
                 <input 

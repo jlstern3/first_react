@@ -4,7 +4,6 @@ import ColorForm from './components/ColorForm';
 import Display from './components/Display';
 
 function App() {
-  const name = "Jess";
   const[boxList, setBoxList] = useState([]);
 
   return (
@@ -12,7 +11,7 @@ function App() {
       <h1>Welcome to Box Generator!</h1>
       <h3>Please add the color of the box you'd like to generate below.</h3>
       <ColorForm boxList = {boxList} setBoxList = {setBoxList}/>
-      <Display name={name} boxList = {boxList} />
+      <Display boxList = {boxList} />
     </div>
   );
 }
