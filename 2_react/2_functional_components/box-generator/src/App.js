@@ -6,6 +6,7 @@ import Display from './components/Display';
 function App() {
   const[boxList, setBoxList] = useState([]);
 
+
   return (
     <div className="App">
       <h1>Welcome to Box Generator!</h1>
