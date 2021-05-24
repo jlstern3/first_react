@@ -13,15 +13,15 @@ const ColorForm = () => {
     //     width: "200px",
     //     height: "200px",
     // };
-    // setNewColor("");
+
     const[newColor, setNewColor] = useState("");
     const[boxList, setBoxList] = useState([]);
 
     const submitHandler = (e) => {
         e.preventDefault();
-        setBoxList([newColor]);
+        setBoxList([newColor, ...boxList]);
+        setNewColor("");
     }
-
     return(
         <div>
             <form onSubmit={(e) => submitHandler(e)}>
@@ -29,9 +29,15 @@ const ColorForm = () => {
                 <input 
                     type="text" 
                     name="newColor" 
+                    value={newColor}
                     onChange = {(e) => setNewColor(e.target.value)} />
                 <button type="submit">Add</button>
             </form>
+            {
+                boxList.map((color, colorListIndex) => (
+                    <p key={colorListIndex}>{color}</p>
+                ))
+            }
             {/* <div style={boxStyle}>Placeholder</div> */}
         </div>
     )
