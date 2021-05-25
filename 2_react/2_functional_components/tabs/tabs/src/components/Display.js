@@ -7,12 +7,18 @@ const Display = (props) => {
         <div>
             {
                 tabsArray.map((tab, index) => (
-                    <div key={index} style={{
+                    <div>
+                    <h3 key={index} style={{
                         margin: "15px",
                         display: "inline-block",
                         overflow: "scroll",
-                    }}>{tab.tab}</div>
-                    
+                    }}>{tab.tab}</h3>
+                    <p key={index} style={{
+                        margin: "15px",
+                        display: "inline-block",
+                        overflow: "scroll",
+                    }}>{tab.content}</p>
+                    </div>
                 ))
             }
         </div>

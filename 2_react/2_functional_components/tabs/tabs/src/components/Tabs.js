@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 
 const Tabs = (props) => {
     const {tabsArray, setTabsArray} = props;
-    const {tabsInput, setTabsInput} = useState("");
-    const {contentInput, setContentInput} = useState("");
+    const [tabsInput, setTabsInput] = useState("");
+    const [contentInput, setContentInput] = useState("");
 
     const submitHandler = (e) => {
         e.preventDefault();
