@@ -6,7 +6,7 @@ import Display from './components/Display';
 
 function App() {
   const tabsArray = [
-    {label: "Tab 1", content: "Tab 1 Content"},
+    {label: "Tab 1", content: "I do it for myself, I'm dancing for no one else, I do it for myself, baby, ahh.  Turn the lights down, and turn it up to something we know, never felt so crazy, haven't slept in days ,I'm burning up breaking through the floor.  When I find myself acting up, when I find myself out of touch.  I'm sick of love songs, pushing up daisies.  And I've just about had enough.I do it for myself, I'm dancing for no one else, I do it for myself, baby, ahh.  Turn the lights down, and turn it up to something we know, never felt so crazy, haven't slept in days ,I'm burning up breaking through the floor.  When I find myself acting up, when I find myself out of touch.  I'm sick of love songs, pushing up daisies.  And I've just about had enough. "},
     {label: "Tab 2", content: "Tab 2 Content"},
     {label: "Tab 3", content: "Tab 3 Content"},
     {label: "Tab 4", content: "Tab 4 Content"},

@@ -4,7 +4,7 @@ const Display = (props) => {
     const {allTabs, currentTabIndex} = props;
     
     return(
-        <div>
+        <div className = "content">
             {allTabs[currentTabIndex].content}
         </div>
     );
