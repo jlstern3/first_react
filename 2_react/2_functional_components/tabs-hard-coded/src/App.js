@@ -15,13 +15,18 @@ function App() {
 
   const[allTabs, setAllTabs] = useState(tabsArray);
 
-  const[selectedTab, setSelectedTab] = useState(0);
+  const[currentTabIndex, setCurrentTabIndex] = useState(0);
 
   return (
     <div className="App">
       <h1>Choose your tab</h1>
-      <Tabs allTabs = {allTabs} selectedTab = {selectedTab} setSelectedTab = {setSelectedTab}  />
-      <Display allTabs = {allTabs} selectedTab = {selectedTab} />
+      <Tabs 
+      allTabs = {allTabs} 
+      currentTabIndex = {currentTabIndex} 
+      setCurrentTabIndex = {setCurrentTabIndex}  />
+      <Display 
+      allTabs = {allTabs} 
+      currentTabIndex = {currentTabIndex} />
 
     </div>
   );

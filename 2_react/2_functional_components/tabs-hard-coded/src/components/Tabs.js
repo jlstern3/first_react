@@ -1,10 +1,32 @@
 import React from 'react';
 
 const Tabs = (props) => {
-    const {allTabs, selectedTab, setSelectedTab} = props;
+    const{allTabs, currentTabIndex, setCurrentTabIndex} = props;
+
+    // declare function to set selected tab
+    const setSelectedTab = (index) => {
+        setCurrentTabIndex(index);
+    };
+
+    // styling tabs
+    const tabStyle = (index) => {
+        if (index === currentTabIndex){
+            return "selectedTab";
+        }
+        else{
+            return "notSelectedTab";
+        }
+    }
+
 
     return(
-        <h1>What's been going on?</h1>
+        <div style={{margin: "20px", width: "80%", textAlign: "center"}}>
+            {
+                allTabs.map((item, index) => (
+                    <div className={`tab ${ tabStyle(index) }`} onClick = {(e) => setSelectedTab(index)}>{item.label}</div>
+                ))
+            }
+        </div>
     )
 }
 

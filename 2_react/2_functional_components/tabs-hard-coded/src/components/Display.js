@@ -1,11 +1,13 @@
 import React from 'react';
 
 const Display = (props) => {
-    const {allTabs, selectedTab, selectedTab} = props;
+    const {allTabs, currentTabIndex} = props;
     
     return(
-        <h1>Display all the things!</h1>
-    )
+        <div>
+            {allTabs[currentTabIndex].content}
+        </div>
+    );
 }
 
 export default Display;
