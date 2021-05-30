@@ -1,17 +1,17 @@
 import './App.css';
-import React from 'react';
 import React, {useState} from 'react';
 
 function App() {
   const[luke, setLuke] = useState({});
 
-  const getLukeSkywalker = () =>{
+  const getLukeSkywalker = () => {
     fetch("https://swapi.dev/api/people/1/")
     .then((response) => {
       console.log(response);
       response.json()
-          .then(jsonResponse) => {
+          .then((jsonResponse) => {
             console.log(jsonResponse);
+            setLuke(jsonResponse);
           })
           .catch((jsonError) => {
             console.log(jsonError);
