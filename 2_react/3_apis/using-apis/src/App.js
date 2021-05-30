@@ -1,11 +1,26 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 function App() {
   const[luke, setLuke] = useState({});
   const [starships, setStarships] = useState([]);
+  const [ getLukesFather, setGetLukesFather] = useState(false);
 
-  const getLukeSkywalker = () => {
+  useEffect(() => {
+{
+
+    }
+  }
+  )
+
+  // const getLukeSkywalker = () => {
+    useEffect(() => {
+      let url = "https://swapi.dev/api/people/1/";
+      if(getLukesFather){
+        url = "https://swapi.dev/api/people/4/";
+      }
+
+
     fetch("https://swapi.dev/api/people/1/")
     .then((response) => {
       console.log(response);
@@ -22,7 +37,7 @@ function App() {
       console.log(error);
     });
     console.log("Let's relax while we wait for swapi to return data!");
-  }
+  }, []);
 
   const getStarships = () => 
     fetch("https://swapi.dev/api/starships")
@@ -42,9 +57,18 @@ function App() {
     console.log("Let's relax while we wait for swapi to return data!");
   }
 
+  const getLukesFatherClick = () => {
+    if (getLukesFather) {
+      setGetLukesFather(false);
+    }
+    else{
+      setGetLukesFather(true);
+    }
+  }
+  
   return (
     <div className="App">
-      <button onClick={(e)=>getLukeSkywalker()}>Get Luke Skywalker</button>
+      <button onClick={(e)=>getLukesFatherClick()}>Get Luke's Father</button>
       <button onClick={(e)=>getStarships()}>Get Starships</button>
 
       <hr />
