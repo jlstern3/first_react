@@ -28,6 +28,7 @@ function App() {
       <button onClick={(e)=>getLukeSkywalker()}>Get Luke Skywalker</button>
       <hr />
       <p>Name: {luke.name}</p>
+      <p>Height: { luke.height }</p>
     </div>
   );
 }
