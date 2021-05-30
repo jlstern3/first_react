@@ -6,13 +6,6 @@ function App() {
   const [starships, setStarships] = useState([]);
   const [ getLukesFather, setGetLukesFather] = useState(false);
 
-  useEffect(() => {
-{
-
-    }
-  }
-  )
-
   // const getLukeSkywalker = () => {
     useEffect(() => {
       let url = "https://swapi.dev/api/people/1/";
@@ -37,7 +30,7 @@ function App() {
       console.log(error);
     });
     console.log("Let's relax while we wait for swapi to return data!");
-  }, []);
+  }, [getLukesFather]); //this will run the useEffect if getLukesFather changes value; if you use empty array, it will only useEffect once when started
 
   const getStarships = () => 
     fetch("https://swapi.dev/api/starships")
@@ -65,7 +58,7 @@ function App() {
       setGetLukesFather(true);
     }
   }
-  
+
   return (
     <div className="App">
       <button onClick={(e)=>getLukesFatherClick()}>Get Luke's Father</button>
