@@ -1,23 +1,20 @@
-import React, {useState, useEffect} from 'react';
 import './App.css';
+import React, {useState, useEffect} from 'react';
 
 function App() {
   const [pokemon, setPokemon] = useState([])
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon")
-    .then((response) =>{
-      response.json()
-        .then((jsonResponse) => {
-          setPokemon(jsonResponse);
-        })
-        .catch((jsonError) => {
-          console.log(jsonError);
-        });
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=807")
+    .then(response => {
+      return response.json()
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .then(response => {
+      setPokemon(response.results)
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   }, []);
   
   return (
