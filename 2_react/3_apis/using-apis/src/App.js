@@ -57,7 +57,7 @@ function App() {
     else{
       setGetLukesFather(true);
     }
-  }
+  };
 
   return (
     <div className="App">
