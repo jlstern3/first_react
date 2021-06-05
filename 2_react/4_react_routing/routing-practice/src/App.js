@@ -9,7 +9,6 @@ function App() {
     <div className="App">
       <Router>
         <Home path="/home"/>
-        <Home path="/:number"/>
         <Home path="/:word"/>
         <Home path="/:word/:font/:bground"/>
       </Router>
