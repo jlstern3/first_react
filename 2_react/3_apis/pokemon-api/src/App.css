@@ -7,5 +7,14 @@ h1{
 }
 
 ul{
-  margin-left: 45%;
+  /* margin-left: 45%; */
+}
+
+.names{
+  border: 2px solid black;
+  width: 300px;
+  height: 200px;
+  overflow-y: scroll;
+  margin-left: 35%;
+  
 }
