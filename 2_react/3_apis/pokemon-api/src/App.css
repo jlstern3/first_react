@@ -7,7 +7,7 @@ h1{
 }
 
 ul{
-  /* margin-left: 45%; */
+  margin-left: 40px;
 }
 
 .names{
@@ -15,6 +15,8 @@ ul{
   width: 300px;
   height: 200px;
   overflow-y: scroll;
-  margin-left: 35%;
+  margin-left: 38%;
+  padding: 15px;
   
+
 }
