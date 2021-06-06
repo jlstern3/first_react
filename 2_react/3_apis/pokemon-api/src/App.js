@@ -29,6 +29,7 @@ function App() {
           ))
         }
       </div>
+      <h3>Which one is your favorite?</h3>
 
     </div>
   );
