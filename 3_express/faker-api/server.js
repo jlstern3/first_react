@@ -78,14 +78,16 @@ app.get("/api/animals/new", (request,response)=>{
     })
 })
 
-app.get("/api/user/company", (request, response) => {
+app.get("/api/user/company/animal", (request, response) => {
     const newUserCreated = createUser();
     const newCompanyCreated = createCompany();
+    const newAnimalCreated = createAnimal();
     console.log("We're doubling down on our efforts!");
     response.json({
         message: "Doing all the dirty work today",
         newCompany: newCompanyCreated,
         newUser: newUserCreated,
+        newAnimal: newAnimalCreated,
     })
 })
 
