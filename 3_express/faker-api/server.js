@@ -37,6 +37,14 @@ const createCompany = () => {
     return newCompany;
 }
 
+const createAnimal= () => {
+    const newAnimal = {
+        type: faker.animal.bear,
+        color: faker.commerce.color, 
+        name: faker.lorem.word,
+        fav_music: faker.music.genre,
+    }
+}
 
 //routes need an http verb, a path, and a function with two parameters (request, response) to run 
 //must return something 
@@ -57,6 +65,16 @@ app.get("/api/companies/new", (request,response) => {
     response.json({
         message: "We created a new company for you!",
         newCompany: newCompanyCreated,
+    })
+})
+
+app.get("/api/animals/new", (request,response)=>{
+    const newAnimalCreated = createAnimal();
+    console.log(newAnimalCreated);
+
+    response.json({
+        message: "We created a new animal for you!",
+        newAnimal: newAnimalCreated
     })
 })
 
