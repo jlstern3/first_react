@@ -139,4 +139,18 @@ WriteResult({ "nRemoved" : 2 })
 > db.students.update({}, {$set: {number_of_belts: 0}})
 WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
 
-17. 
+17. Increment number_of_belts field by 1 for all students living in Washington:
+> db.students.update({home_state: "Washington"}, {$inc: {number_of_belts:1}}, {multi: true})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+18. Rename the 'number_of_belts' field to 'belts_earned':
+> db.students.update({}, {$rename: {"number_of_belts": "belts_earned"}}, {multi:true})
+WriteResult({ "nMatched" : 2, "nUpserted" : 0, "nModified" : 1 })
+
+19. Remove the 'lucky_number' field:
+> db.students.update({}, {$unset: {lucky_number:""}}, {multi:true})
+WriteResult({ "nMatched" : 2, "nUpserted" : 0, "nModified" : 2 })
+
+20. Add an 'updated_on' field and set the value as the current date:
+> db.students.update({}, {$currentDate: {updated_on: true}}, {multi:true})
+WriteResult({ "nMatched" : 2, "nUpserted" : 0, "nModified" : 2 })
