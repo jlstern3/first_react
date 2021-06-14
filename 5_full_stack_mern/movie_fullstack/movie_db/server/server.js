@@ -1,7 +1,13 @@
 const express = require('express');
 const app = express();
 
-//EQUIVALENT FUNCTIONALITIES LINE 7-13
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
+//run Mongoose connect file 
+require('./config/mongoose.config');
+
+//EQUIVALENT FUNCTIONALITIES LINE 10-19
 //require pulls in the function we created in routes
 //then it invokes the function the app express server as an argument
 require('./routes/movie.routes') (app);
