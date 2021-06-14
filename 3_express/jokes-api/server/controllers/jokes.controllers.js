@@ -39,7 +39,7 @@ module.exports.createJoke = (req, res) => {
 }
 
 module.exports.updateJoke = (req, res) => {
-    Joke.findOneAndUpdate(req.params.jokeId, req.body, {new: true})
+    Joke.findOneAndUpdate({_id:req.params.jokeId}, req.body, {new: true})
         .then(updateUser => {
             res.json({
             message: "We've updated the user.",
@@ -55,10 +55,10 @@ module.exports.updateJoke = (req, res) => {
 }
 
 module.exports.deleteJoke = (req, res) => {
-    Joke.remove({_id:req.params.jokeId})
+    Joke.deleteOne({_id:req.params.jokeId})
         .then(deletedJoke => {
             res.json({
-            message: "We've deleted a user.",
+            message: "We've deleted a joke.",
             result: deletedJoke,
             })
         })
