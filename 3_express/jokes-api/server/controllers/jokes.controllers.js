@@ -24,36 +24,48 @@ module.exports.getSingleJoke = (req,res) => {
 
 module.exports.createJoke = (req, res) => {
     Joke.create(req.body)
-        .then(newJoke = res.json({
+        .then(newJoke => {
+            res.json({
             message: "we've created a new joke.",
-            newJoke: newJoke,
-        }))
-        .catch( err => res.json({
+            joke: newJoke,
+            })
+        })
+        .catch( err => {
+            res.json({
             messeage: "We caught an error!",
             error: err,
-        }))
+            })
+        })
 }
 
 module.exports.updateJoke = (req, res) => {
     Joke.findOneAndUpdate(req.params.jokeId, req.body, {new: true})
-        .then(updateUser = res.json({
+        .then(updateUser => {
+            res.json({
             message: "We've updated the user.",
             user: updateUser,
-        }))
-        .catch( err => res.json({
-            messeage: "We caught an error!",
+            })
+        })
+        .catch( err => {
+            res.json({
+            message: "We caught an error!",
             error: err,
-        }))
+            })
+        })
 }
 
 module.exports.deleteJoke = (req, res) => {
-    Joke.deleteOne(req.params.jokeId)
-        .then(result = res.json({
+    Joke.remove({_id:req.params.jokeId})
+        .then(deletedJoke => {
+            res.json({
             message: "We've deleted a user.",
-            result: result,
-        }))
-        .catch(err = req.json({
+            result: deletedJoke,
+            })
+        })
+        .catch(err => {
+            res.json({
             message: "We caught an error!",
             error: err,
-        }))
+            })
+        })
 }
