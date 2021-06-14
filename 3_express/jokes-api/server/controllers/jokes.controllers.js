@@ -19,7 +19,7 @@ module.exports.getSingleJoke = (req,res) => {
         }))
         .catch(err => res.json({
             message: "We caught an error!",
-            error: err
+            error: err,
         }))
 };
 
@@ -55,6 +55,6 @@ module.exports.deleteJoke = (req, res) => {
         }))
         .catch(err = req.json({
             message: "We caught an error!",
-            error: err
+            error: err,
         }))
 }
