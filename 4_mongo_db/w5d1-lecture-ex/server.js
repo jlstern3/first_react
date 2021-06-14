@@ -68,6 +68,24 @@ app.post('/dogs/create', (req,res)=>{
         })
 })
 
+//Find single dog
+app.get('/dogs/:dogID', (req,res) =>{
+    Dog.findById(req.params.dogID)
+        .then(singleDog => {
+            res.json({
+                results: singleDog,
+                message:"success"
+            })
+        })
+        .catch(err => {
+            console.log("An error occurred");
+            res.json({
+                message: "error",
+                error: err
+            })
+        })
+})
+
 
 app.listen(8000, () =>
     console.log("Server is actively listening on port 8000"));
