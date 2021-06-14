@@ -14,9 +14,8 @@ module.exports.getAllJokes = (req,res) => {
 module.exports.getSingleJoke = (req,res) => {
     Joke.findOne({_id: req.params.id})
         .then(oneSingleJoke => res.json({
-            message: "We've returning one joke.",
-            joke: oneSingleJoke,
-        }))
+            message: "We've returned one joke.",
+            joke: oneSingleJoke}))  
         .catch(err => res.json({
             message: "We caught an error!",
             error: err,

@@ -3,7 +3,8 @@ const app = express();
 
 require("./server/config/mongoose.config")
 
-app.use(express.json(), express.urlencoded({extended: true}));
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 const AllJokeRoutes = require("./server/routes/jokes.routes");
 AllJokeRoutes(app);
