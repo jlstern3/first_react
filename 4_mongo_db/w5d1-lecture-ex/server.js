@@ -17,6 +17,13 @@ mongoose.connect("mongodb://localhost/dogs", {
     .then(() => console.log("We've established a connection to our database."))
     .catch(err => console.log("Error connecting to database"))
 
+//Schema - template for documents in our collection
+const DogSchema = new mongoose.Schema({
+    name: String,
+    age: Number,
+    bites: Boolean
+}, {timestamps: true});
+
 
 app.get('/', (req, res) => {
     return res.json({
