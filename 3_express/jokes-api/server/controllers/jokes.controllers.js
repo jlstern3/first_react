@@ -1,7 +1,7 @@
 const Joke = require("../models/jokes.model");
 
 module.exports.getAllJokes = (req,res) => {
-    Joke.find().pretty()
+    Joke.find()
         .then(allJokes => res.json({
             message: "We've returned all the jokes.",
             jokes: allJokes}))
