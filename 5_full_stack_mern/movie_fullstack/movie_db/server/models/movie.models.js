@@ -10,7 +10,7 @@ const MovieSchema = new mongoose.Schema({
         type: String,
         required: [true, "Genre is required for Movies."],
         //enumerate: saying genre must match certain types (whatever you specify in array)
-        enum: [["Action", "Comedy", "Fantasy", "Horror", "Sci-Fi"], "You selected an invalid genre"]
+        enum: ["Action", "Comedy", "Fantasy", "Horror", "Sci-Fi"]
     },
     producer: {
         type: String,
@@ -28,7 +28,7 @@ const MovieSchema = new mongoose.Schema({
         type: String,
         required: [true, "Rating is required for Movies."],
         //enumerate: saying genre must match certain types (whatever you specify in array)
-        enum: [["G", "PG", "PG-13", "R", "NR"], "You selected an invalid rating."]
+        enum: ["G", "PG", "PG-13", "R", "NR"]
     },
     isOnNetflix: {
         type: Boolean,
