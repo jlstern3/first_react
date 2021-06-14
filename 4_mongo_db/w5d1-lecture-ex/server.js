@@ -1,90 +1,19 @@
 const express = require('express');
 const app = express();
 
-require("./server/config/dog.config");
+require("./server/config/mongoose.config");
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-//get Mongoose library
-const mongoose = require('mongoose');
+//load up and run the mongoose config file so we can connect to our database
+require("./server/config/mongoose.config");
 
-//connect mongoose to mongoDB
-mongoose.connect("mongodb://localhost/dogs", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-    .then(() => console.log("We've established a connection to our database."))
-    .catch(err => console.log("Error connecting to database"))
-
-//Schema - template for documents in our collection
-const DogSchema = new mongoose.Schema({
-    name: String,
-    age: Number,
-    bites: Boolean
-}, {timestamps: true});
-
-
-//create Mongoose model containing methods we need to query database
-const Dog = mongoose.model("Dog", DogSchema);
-
-//Routes and functions
-app.get('/', (req, res) => {
-    return res.json({
-        message: "Hello world!"
-    });
-})
-
-//Get all dogs
-app.get('/dogs', (req,res)=>{
-    Dog.find()
-        .then(dogsArray => {
-            console.log("We got some dogs")
-            res.json(dogsArray);
-        })
-        .catch(err => {
-            console.log("An error occurred");
-            res.json({
-                message: "error",
-                error: err
-            })
-        })
-})
-
-//Create dogs
-app.post('/dogs/create', (req,res)=>{
-    Dog.create(req.body)
-        .then(newDog => {
-            res.json({
-                results: newDog,
-                message: "success"})
-        })
-        .catch(err => {
-            console.log("An error occurred");
-            res.json({
-                message: "error",
-                error: err
-            })
-        })
-})
-
-//Find single dog
-app.get('/dogs/:dogID', (req,res) =>{
-    Dog.findById(req.params.dogID)
-        .then(singleDog => {
-            res.json({
-                results: singleDog,
-                message:"success"
-            })
-        })
-        .catch(err => {
-            console.log("An error occurred");
-            res.json({
-                message: "error",
-                error: err
-            })
-        })
-})
+//runs routes file we created
+const dogRoutes = require('./server/routes/dog.routes');
+//call function we created on line 13 and pass in our app
+//this loads all of my routes into my express application
+dogRoutes(app);
 
 
 app.listen(8000, () =>
