@@ -25,11 +25,49 @@ const DogSchema = new mongoose.Schema({
 }, {timestamps: true});
 
 
+//create Mongoose model containing methods we need to query database
+const Dog = mongoose.model("Dog", DogSchema);
+
+//Routes and functions
 app.get('/', (req, res) => {
     return res.json({
         message: "Hello world!"
     });
 })
+
+//Get all dogs
+app.get('/dogs', (req,res)=>{
+    Dog.find()
+        .then(dogsArray => {
+            console.log("We got some dogs")
+            res.json(dogsArray);
+        })
+        .catch(err => {
+            console.log("An error occurred");
+            res.json({
+                message: "error",
+                error: err
+            })
+        })
+})
+
+//Create dogs
+app.post('/dogs/create', (req,res)=>{
+    Dog.create(req.body)
+        .then(newDog => {
+            res.json({
+                results: newDog,
+                message: "success"})
+        })
+        .catch(err => {
+            console.log("An error occurred");
+            res.json({
+                message: "error",
+                error: err
+            })
+        })
+})
+
 
 app.listen(8000, () =>
     console.log("Server is actively listening on port 8000"));
