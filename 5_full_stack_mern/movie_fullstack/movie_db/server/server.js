@@ -1,8 +1,14 @@
 const express = require('express');
 const app = express();
+// inside the server dir, run: npm install cors
+const cors = require('cors');
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+
+//adds the cors functionality to our express server 
+//which allows our browser to request things from our API
+app.use(cors());
 
 //run Mongoose connect file 
 require('./config/mongoose.config');
