@@ -28,12 +28,14 @@ const AllMovies = (props) =>{
             {
                 movies.map((movie,index) => (
                     <div key = {index}>
+                        {/* Create a link to the details page with each movie displayed */}
+
                         <Link to = {"/movies/" + movie._id }>
                         {movie.title}</Link>
                     </div>
                 ))
             }
-            {/* Create a link to the details page with each movie displayed */}
+            {/* add movie button */}
         </div>
     )
 }
