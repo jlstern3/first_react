@@ -28,7 +28,8 @@ const AllMovies = (props) =>{
             {
                 movies.map((movie,index) => (
                     <div key = {index}>
-                        {movie.title}
+                        <Link to = {"/movies/" + movie._id }>
+                        {movie.title}</Link>
                     </div>
                 ))
             }
