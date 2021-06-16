@@ -1,11 +1,14 @@
 import './App.css';
 import ProductForm from './components/ProductForm';
-import {Router} from '@reach/router';
+import React, {useState} from 'react';
+// import {Router} from '@reach/router';
 
 function App() {
+  const[productList, setProductList] = useState([]);
+
   return (
     <div className="App">
-      <ProductForm/>
+      <ProductForm productList = {productList} setProductList = {setProductList}/>
     </div>
   );
 }
