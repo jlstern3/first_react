@@ -8,10 +8,13 @@ import UpdateMovie from './components/UpdateMovie';
 function App() {
   return (
     <div className="App">
-      <AllMovies/>
-      <MovieDetails/>
-      <UpdateMovie/>
-      <CreateMovie/>
+      <h1>Welcome to the Movie DB</h1>
+      <Router>
+        <AllMovies default/>
+        <CreateMovie path = "/movies/new"/>
+        <MovieDetails path = "/movies/:id"/>
+        <UpdateMovie path = "/movies/:id/update"/>
+      </Router>
     </div>
   );
 }
