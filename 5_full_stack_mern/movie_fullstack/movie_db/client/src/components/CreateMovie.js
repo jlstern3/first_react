@@ -16,6 +16,8 @@ const CreateMovie = (props) =>{
         "coverArtURL": ""
 
     })
+    const[errors, setErrors] = useState({});
+
     // handle form submit to create the document through the API
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -23,9 +25,17 @@ const CreateMovie = (props) =>{
         axios.post("http://localhost:8000/api/movies", movie) 
         
             .then((res) => {
-             // on success, redirect (navigate) to the movie list
                 console.log(res.data);
-                navigate("/movies");
+                // if we have validation errors, not errors with our server
+                if(res.data.errors){
+                    setErrors(res.data.errors)
+                }
+                else{
+                // on success, redirect (navigate) to the movie list
+
+                    navigate("/movies");
+                }
+
             })
             // failure, save the errors in state so the user can correct 
 
@@ -88,6 +98,11 @@ const CreateMovie = (props) =>{
                     name = "title" 
                     value = {movie.title} 
                     onChange = {(e) => inputChange(e)}/>
+                    {
+                        errors.title ?
+                        <span className = "errors">{errors.title.message}</span>
+                        : null
+                    }
                 </div>
                 <div>
                     <label>Genre</label>
@@ -103,7 +118,12 @@ const CreateMovie = (props) =>{
                             <option value = {movieGenre} key = {movieGenre}>{movieGenre}</option>
                         ))
                     }
-                    </select>                  
+                    </select>  
+                    {
+                        errors.genre ?
+                        <span className = "errors">{errors.genre.message}</span>
+                        : null
+                    }                
                 </div>
                 <div>
                     <label>Producer</label>
@@ -111,6 +131,11 @@ const CreateMovie = (props) =>{
                     name = "producer" 
                     value = {movie.producer} 
                     onChange = {(e) => inputChange(e)}/>   
+                    {
+                        errors.producer ?
+                        <span className = "errors">{errors.producer.message}</span>
+                        : null
+                    }
                 </div>
                 <div>
                     <label>Movie Length (mins)</label>
@@ -119,6 +144,11 @@ const CreateMovie = (props) =>{
                     name = "length" 
                     value = {movie.length} 
                     onChange = {(e) => inputChange(e)}/>   
+                    {
+                        errors.length ?
+                        <span className = "errors">{errors.length.message}</span>
+                        : null
+                    }
                 </div>
                 <div>
                     <label>Production Date</label>
@@ -126,6 +156,11 @@ const CreateMovie = (props) =>{
                     name = "dateProduction" 
                     value = {movie.dateProduction} 
                     onChange = {(e) => inputChange(e)}/>   
+                    {
+                        errors.dateProduction ?
+                        <span className = "errors">{errors.dateProduction.message}</span>
+                        : null
+                    }
                 </div>
                 <div>
                     <label>Ratings</label>
@@ -141,7 +176,12 @@ const CreateMovie = (props) =>{
                             <option value = {movieRating} key = {movieRating}>{movieRating}</option>
                         ))
                     }
-                    </select>     
+                    </select>  
+                    {
+                        errors.rating ?
+                        <span className = "errors">{errors.rating.message}</span>
+                        : null
+                    }   
                 </div>
                 <div>
                     <input
@@ -150,6 +190,11 @@ const CreateMovie = (props) =>{
                     checked = {movie.isOnNetflix}
                     onChange = {(e) => inputChange(e)}/>
                     <label>Movie is on Netflix</label>
+                    {
+                        errors.isOnNetflix ?
+                        <span className = "errors">{errors.isOnNetflix.message}</span>
+                        : null
+                    } 
                 </div>
                 <div>
                     <label>Cover Art URL</label>
@@ -158,6 +203,11 @@ const CreateMovie = (props) =>{
                     name="coverArtURL"
                     value = {movie.coverArtURL}
                     onChange = {(e) => inputChange(e)}/>
+                    {
+                        errors.coverArtURL ?
+                        <span className = "errors">{errors.coverArtURL.message}</span>
+                        : null
+                    }
                 </div>
 
 
