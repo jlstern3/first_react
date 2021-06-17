@@ -43,21 +43,24 @@ const CreateMovie = (props) =>{
                 console.log(err)
             })
 }
-    // create a new movie object and create a copy of what's currently in state
-    // make a change to the copy
-    // set the changes in state
+
+
     const inputChange = (e) => {
         console.log("Input name: " + e.target.name);
         console.log("input value: " + e.target.value);
         console.log("input checked: " + e.target.checked);
 
+    // create a new movie object and create a copy of what's currently in state
+
         let newMovieObject = { ...movie};
+    // make a change to the copy
         if(e.target.name === "isOnNetflix"){
             newMovieObject[e.target.name] = e.target.checked;
         }
         else{
             newMovieObject[e.target.name] = e.target.value;
         }
+    // set the changes in state
         setAllMovie(newMovieObject);
     }
 
