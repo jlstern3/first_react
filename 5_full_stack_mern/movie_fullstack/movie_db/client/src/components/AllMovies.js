@@ -36,6 +36,7 @@ const AllMovies = (props) =>{
                 ))
             }
             {/* add movie button */}
+            <Link to = {"/movies/new"}><button>Create a Movie</button></Link>
         </div>
     )
 }
