@@ -10,7 +10,22 @@ const MovieSchema = new mongoose.Schema({
         type: String,
         required: [true, "Genre is required for Movies."],
         //enumerate: saying genre must match certain types (whatever you specify in array)
-        enum: ["Action", "Comedy", "Fantasy", "Horror", "Sci-Fi"]
+        enum: ['Action',
+        'Adventure',
+        'Animation',
+        'Cinema Verite',
+        'Comedy',
+        'Drama',
+        'Experimental',
+        'Family',
+        'Fantasy',
+        'Foreign',
+        'Horror',
+        'Kung Fu',
+        'Musical',
+        'Mystery',
+        'Romance',
+        'Sci-Fi']
     },
     producer: {
         type: String,
