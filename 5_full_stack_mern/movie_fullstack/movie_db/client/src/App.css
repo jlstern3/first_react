@@ -1,5 +1,5 @@
 .App{
-  max-width: 900px;
+  max-width: 600px;
   margin: auto;
   border-radius: 5pm;
   background-color: #f2f2f2;
@@ -21,6 +21,17 @@ img{
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.checkboxDiv input{
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+}
+
+.checkboxDiv label{
+  padding: 10px;
+
 }
 
 input, select{

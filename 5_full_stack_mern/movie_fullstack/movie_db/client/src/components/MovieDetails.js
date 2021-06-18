@@ -28,7 +28,11 @@ const MovieDetails = (props) =>{
             <p>Genre: {movie.genre}</p>
             <p>Producer: {movie.producer}</p>
             <p>Length: {movie.length}</p>
-            <p>Production Date: {movie.dateProduced}</p>
+            <p>Production Date: {
+            movie.dateProduction !== "" ?
+            ((new Date(movie.dateProduction)).toLocaleDateString("en-us"))
+            : ""
+            }</p>
             <p>Rating: {movie.rating}</p>
             <p><img src = {movie.coverArtURL} alt = {movie.title}/></p>
             <Link to = {"/movies"} >

@@ -186,7 +186,7 @@ const CreateMovie = (props) =>{
                         : null
                     }   
                 </div>
-                <div>
+                <div className="checkboxDiv">
                     <input
                     type="checkbox"
                     name="isOnNetflix"
