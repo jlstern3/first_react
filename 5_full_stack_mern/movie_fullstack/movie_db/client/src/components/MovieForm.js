@@ -117,7 +117,11 @@ const MovieForm = (props) =>{
                     <label>Production Date</label>
                     <input type = "text" 
                     name = "dateProduction" 
-                    value = {movie.dateProduction} 
+                    value = {
+                        movie.dateProduction !== "" ?
+                        ((new Date(movie.dateProduction)).toLocaleDateString("en-us"))
+                        : null
+                    } 
                     onChange = {(e) => inputChange(e)}/>   
                     {
                         errors.dateProduction ?
