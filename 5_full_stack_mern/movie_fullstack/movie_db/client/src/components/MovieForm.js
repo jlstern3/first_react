@@ -120,7 +120,7 @@ const MovieForm = (props) =>{
                     value = {
                         movie.dateProduction !== "" ?
                         ((new Date(movie.dateProduction)).toLocaleDateString("en-us"))
-                        : null
+                        : ""
                     } 
                     onChange = {(e) => inputChange(e)}/>   
                     {
