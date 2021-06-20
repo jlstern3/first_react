@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios'; 
 import {Link, navigate} from '@reach/router';
 import MovieForm from './MovieForm';
+import DeleteMovie from './DeleteMovie';
 
 const UpdateMovie = (props) =>{
     //destructured props (so can now use just id instead of props.id)
@@ -41,7 +42,12 @@ const UpdateMovie = (props) =>{
             .catch(err => {
                 console.log(err)
             })
-} 
+    } 
+    
+    const afterDeleteHandler = () => {
+        navigate("/movies");
+    }
+
     return(
         <div>
             <h1>Update Movie</h1>
@@ -52,6 +58,9 @@ const UpdateMovie = (props) =>{
             handleSubmit = {handleSubmit}
             submitButtonLabel = {"Update Movie"}
             /> 
+            <DeleteMovie 
+            id = {props.id} 
+            afterDeleteHandler = {afterDeleteHandler}/>
         </div>
     )
 }

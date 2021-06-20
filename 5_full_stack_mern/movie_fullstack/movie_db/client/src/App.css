@@ -51,3 +51,8 @@ button{
   color: white;
   background-color: blue;
 }
+
+.deleteBtn{
+  color: black;
+  background-color: red;
+}

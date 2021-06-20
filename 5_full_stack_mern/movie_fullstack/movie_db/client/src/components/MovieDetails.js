@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'; 
 import {Link, navigate} from '@reach/router';
+import DeleteMovie from './DeleteMovie';
 
 const MovieDetails = (props) =>{
     //create state to hold the movie details
@@ -21,6 +22,10 @@ const MovieDetails = (props) =>{
         // if someone changes the props.id (meaning changing the page), it'll rerun useEffect
     }, [props.id]);
 
+    const afterDeleteHandler = () => {
+        navigate("/movies");
+    }
+    
     return(
         <div>
             <h1>Movie Details</h1>
@@ -41,6 +46,9 @@ const MovieDetails = (props) =>{
             <Link to = {"/movies/" + props.id + "/update"} >
                 <button>Edit {movie.title}</button>
             </Link>
+            <DeleteMovie 
+            id = {props.id} 
+            afterDeleteHandler = {afterDeleteHandler}/>
         </div>
     )
 }

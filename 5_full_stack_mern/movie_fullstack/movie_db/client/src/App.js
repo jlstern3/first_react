@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <h1>Welcome to the Movie DB</h1>
       <Router>
-        <AllMovies default/>
+        <AllMovies default path = "/movies"/>
         <CreateMovie path = "/movies/new"/>
         <MovieDetails path = "/movies/:id"/>
         <UpdateMovie path = "/movies/:id/update"/>
