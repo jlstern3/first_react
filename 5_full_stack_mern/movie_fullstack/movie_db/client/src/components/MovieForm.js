@@ -3,7 +3,10 @@ import axios from 'axios';
 import {Link, navigate} from '@reach/router';
 
 const MovieForm = (props) =>{
-    const {movie, setMovie, errors, handleSubmit} = props;
+    //MovieForm is the child, so it's receiving these five things below from the parents (CreateMovie/UpdateMovie)
+    //passed in via props
+    //statement below is deconstructing those props 
+    const {movie, setMovie, errors, handleSubmit, submitButtonLabel} = props;
 
     const genres = [
         'Action',
@@ -182,7 +185,7 @@ const MovieForm = (props) =>{
                 {/* input that update state as they changes
                 //values int he inputs that use state as the valeus */}
                 {/* validate/display errors that come from the backend server */}
-                <button type="submit">Create a Movie</button>
+                <button type="submit">{ submitButtonLabel}</button>
                 {/* return to all movies butt/link */}
                 <button onClick = {() => navigate("/movies")}>Cancel</button>
             </form>

@@ -4,6 +4,7 @@ import {Link, navigate} from '@reach/router';
 import MovieForm from './MovieForm';
 
 const UpdateMovie = (props) =>{
+    //destructured props (so can now use just id instead of props.id)
     const {id} = props
     // create state for the new movie Object
     const [movie, setMovie] = useState ({});
@@ -24,7 +25,7 @@ const UpdateMovie = (props) =>{
     const handleSubmit = (e) => {
         e.preventDefault();
         // call axios to post object to API
-        axios.post("http://localhost:8000/api/movies", movie) 
+        axios.put("http://localhost:8000/api/movies/" + id, movie) 
             .then((res) => {
                 console.log(res.data);
                 // if we have validation errors, not errors with our server
@@ -33,7 +34,7 @@ const UpdateMovie = (props) =>{
                 }
                 else{
                 // on success, redirect (navigate) to the movie list
-                    navigate("/movies");
+                    navigate("/movies/" + id);
                 }
             })
             // failure, save the errors in state so the user can correct 
@@ -49,7 +50,8 @@ const UpdateMovie = (props) =>{
             setMovie = {setMovie}
             errors = {errors}
             handleSubmit = {handleSubmit}
-            />
+            submitButtonLabel = {"Update Movie"}
+            /> 
         </div>
     )
 }

@@ -47,6 +47,7 @@ const CreateMovie = (props) =>{
             setMovie = {setMovie}
             errors = {errors}
             handleSubmit = {handleSubmit}
+            submitButtonLabel = {"Create Movie"} 
             />
         </div>
     )
