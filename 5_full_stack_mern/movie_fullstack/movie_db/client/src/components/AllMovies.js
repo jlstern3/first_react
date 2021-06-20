@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'; 
 import {Link, navigate} from '@reach/router';
+import DeleteMovie from './DeleteMovie';
 
 const AllMovies = (props) =>{
 //create state to hold an array of movie objects
@@ -20,6 +21,16 @@ const AllMovies = (props) =>{
         });
     }, []);
 
+    const afterDeleteHandler = (deletedMovieId) => {
+        //filter goes through every movie (like map) and includes or excludes depending on if its true or false
+        let filteredMovieArray = movies.filter((movie) => {
+            //must return true or false
+            //true will include the movie int he new array
+            //false will skip this movie and NOT include it in the new array
+            return movie._id !== deletedMovieId;
+        });
+        setMovies(filteredMovieArray);
+    }
 
     return(
         <div>
@@ -32,6 +43,9 @@ const AllMovies = (props) =>{
 
                         <Link to = {"/movies/" + movie._id }>
                         {movie.title}</Link>
+                        <DeleteMovie 
+                        id = {movie._id} 
+                        afterDeleteHandler = {afterDeleteHandler}/>
                     </div>
                 ))
             }

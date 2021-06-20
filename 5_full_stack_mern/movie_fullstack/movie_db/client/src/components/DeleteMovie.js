@@ -12,7 +12,7 @@ const DeleteMovie = (props) => {
         axios.delete("http://localhost:8000/api/movies/" + id)
         .then((res) => {
             console.log(res.data);
-            afterDeleteHandler(); //unique things that the parent wants to do now
+            afterDeleteHandler(id); //unique things that the parent wants to do now
         })
         .catch(err => console.log(err))
 
