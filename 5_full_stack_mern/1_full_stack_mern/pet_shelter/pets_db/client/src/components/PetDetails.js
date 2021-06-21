@@ -31,8 +31,10 @@ const PetDetails = (props) => {
             <h3>Details about: {pet.name}</h3>
 
             <div className="details_div">
-                <h4>Pet type: {pet.type}</h4>
-                <h4>Description: {pet.description}</h4>
+                <h4>Pet type: </h4>
+                <p>{pet.type}</p><br></br>
+                <h4>Description: </h4>
+                <p>{pet.description}</p><br></br>
                 <h4>Skills: </h4>
                 <ul>
                     <li>{pet.skill1}</li>

@@ -49,10 +49,15 @@ label{
 
 ul{
   list-style-type: none;
+  margin: 0px;
 }
 
 li{
   padding: 5px;
+}
+h4, p{
+  display: inline-block;
+  padding: 0px 10px;
 }
 
 table {
