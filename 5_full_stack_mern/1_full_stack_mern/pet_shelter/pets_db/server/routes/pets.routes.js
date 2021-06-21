@@ -2,13 +2,13 @@ const PetController = require('../controllers/pets.controllers');
 
 module.exports = function(app){
     //get all movies
-    app.get('/api/pets', PetController.getAllPets);
+    app.get('/', PetController.getAllPets);
     // //create movie
-    // app.post('/api/movies', MovieController.createMovie);
+    // app.post('/pets/new', PetController.createPet);
     // //get one movie
-    // app.get('/api/movies/:id', MovieController.getOneMovie);
+    // app.get('/pets/:id', PetController.getPetDetails);
     // //update movie
-    // app.put('/api/movies/:id', MovieController.updateMovie);
+    // app.put('/pets/:id/edit', PetController.editPet);
     // //delete movie
-    // app.delete('/api/movies/:id', MovieController.deleteMovie);
+    // app.delete('/pets/:id', PetController.deletePet);
 }

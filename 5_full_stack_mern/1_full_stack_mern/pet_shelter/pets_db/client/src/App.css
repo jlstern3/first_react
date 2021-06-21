@@ -1,3 +1,60 @@
 .App {
   text-align: center;
 }
+.App{
+  max-width: 600px;
+  margin: auto;
+  border-radius: 5pm;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6{
+  text-align: center;
+}
+
+.errors{
+  color: red;
+  margin: 5px;
+}
+
+/* img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+/* .checkboxDiv input{
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+}
+
+.checkboxDiv label{
+  padding: 10px;
+} */
+
+input, select{
+  width: 100px;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+
+button{
+  margin: 0px 10px;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  background-color: blue;
+}
+
+.deleteBtn{
+  color: black;
+  background-color: red;
+}
