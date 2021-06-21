@@ -26,20 +26,10 @@ const AllPets = (props) => {
     }, []);
 
 
-
-
-
-
     return (
         <div>
             <h3>These pets are looking for a good home</h3>
-            {/* {
-                pets.map((pet, index) => (
-                    <div key={index}>
-                        <p>{pet.name}</p>
-                    </div>
-                ))
-            } */}
+            <Link to = "/pets/new">add a pet to the shelter</Link>
             <table>
                 <thead>
                     <tr>
@@ -49,21 +39,23 @@ const AllPets = (props) => {
                     </tr>
                 </thead>
                 <tbody>
+                {/* map through pets to display all pets */}
                     {
                     pets.map((pet,index) => (
                         <tr key={index}>
                             <td>{pet.name}</td>
                             <td>{pet.type}</td>
-                            <td>Placeholder for details and edit active links</td>
+                {/* button/link next to each pet for pet details */}
+                {/* button/link next to each pet for edit pet */}
+                            <td><Link to = {"/pets/" + pet._id}>Details | </Link></td>
                         </tr>
                     ))
                     }
                 </tbody>
             </table>
 
-            {/* map through pets to display all pets */}
-            {/* button/link next to each pet for pet details */}
-            {/* button/link next to each pet for edit pet */}
+
+
         </div>
     )
 }
