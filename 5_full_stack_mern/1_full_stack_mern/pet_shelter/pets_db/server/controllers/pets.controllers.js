@@ -65,5 +65,17 @@ module.exports.editPet = (req, res) => {
 };
 
 //DeletePet
-// module.exports.deletePet
+module.exports.deletePet = (req,res) => {
+    console.log("inside deletePet");
+    console.log(req.params.id)
+    Pet.findByIdAndDelete(req.params.id)
+        .then((deletedPet) => {
+            console.log(deletedPet);
+            res.json(deletedPet);
+        })
+        .catch(err => {
+            console.log(err);
+            res.json(err)
+        })
+}
 

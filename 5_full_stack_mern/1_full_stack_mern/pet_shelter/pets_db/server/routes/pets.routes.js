@@ -9,6 +9,6 @@ module.exports = function(app){
     app.get('/pets/:id', PetController.getPetDetails);
     // update movie
     app.put('/pets/:id/edit', PetController.editPet);
-    // //delete movie
-    // app.delete('/pets/:id', PetController.deletePet);
+    //delete movie
+    app.delete('/pets/:id', PetController.deletePet);
 }
