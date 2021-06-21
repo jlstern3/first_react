@@ -4,9 +4,9 @@ module.exports = function(app){
     //get all movies
     app.get('/', PetController.getAllPets);
     // //create movie
-    // app.post('/pets/new', PetController.createPet);
+    app.post('/pets/new', PetController.createPet);
     // //get one movie
-    // app.get('/pets/:id', PetController.getPetDetails);
+    app.get('/pets/:id', PetController.getPetDetails);
     // //update movie
     // app.put('/pets/:id/edit', PetController.editPet);
     // //delete movie
