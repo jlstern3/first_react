@@ -50,6 +50,9 @@ label{
 ul{
   list-style-type: none;
   margin: 0px;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
 }
 
 li{
@@ -100,6 +103,7 @@ tr:nth-child(even), thead {
   text-decoration: underline;
   background: none;
   border: none;
+  margin-left: 75%;
 }
 
 button{
@@ -128,4 +132,19 @@ button{
   background: none;
   border: none;
   margin-left: 75%;
+}
+
+.right_side, .left_side{
+  display: inline-block;
+  width: 200px;
+  margin: 20px;
+  vertical-align: top;
+}
+
+.left_side{
+  margin-left: 100px;
+}
+
+#skills_title{
+  font-weight: normal;
 }

@@ -29,7 +29,6 @@ const AllPets = (props) => {
     return (
         <div>
             <Link to="/pets/new" className="add_pet">add a pet to the shelter</Link>
-
             <h3>These pets are looking for a good home</h3>
             <table>
                 <thead>
