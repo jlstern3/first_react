@@ -6,7 +6,7 @@ const PetForm = (props) => {
     // PetForm is the child of AddPet and EditPet
     // so PetForm takes in props passed down from two above components
     // since accepting props, need to deconstruct them here in order to use
-    const { pet, setPet, errors, handleSubmit, submitButtonLabel } = props;
+    const {pet, setPet, errors, handleSubmit, submitButtonLabel} = props;
 
     // write function for input change
     const inputChange = (e) => {

@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import PetForm from './PetForm';
 import {Link, navigate} from '@reach/router';
+import DeletePet from './DeletePet';
 
-const AddPet = (props) =>{
+const AddPet = (props) => {
     // create state to set new Pet
     const[pet, setPet] = useState({
         "name": "",
@@ -15,44 +16,40 @@ const AddPet = (props) =>{
     });
 
     //create state for errors
-    const[errors, setErrors] = useState({});
+    const [errors, setErrors] = useState({});
 
     //handleSubmit function
     const handleSubmit = (e) => {
         e.preventDefault();
-        // call axios to post object
-        axios.post('http://localhost:8000/pets/new', pet)
-        //success statement
-        .then((res) => {
-            console.log(res.data);
-        // if input errors, set errors in errors state
-            if(res.data.error){
-                setErrors(res.data.erros);
-            }
-        //if no input errors, redirect to dashboard
-            else{
-                navigate("/");
-            }
-        })
-        //catching backend errors (server failure)
-        .catch((err)=> {
-            console.log (err);
-        })
+        // call axios to post object to API
+        axios.post("http://localhost:8000/pets/new", pet)
+            .then((res) => {
+                console.log(res.data);
+                // if we have validation errors, not errors with our server
+                if (res.data.errors) {
+                    setErrors(res.data.errors)
+                }
+                else {
+                    // on success, redirect (navigate) to the movie list
+                    navigate("/");
+                }
+            })
+            // failure, save the errors in state so the user can correct 
+            .catch(err => {
+                console.log(err)
+            })
     }
 
-
-
-
-
-    return(
+    return (
         <div>
-    {/* submitButtonLabel function */}
+            <h1>Add Pet</h1>
             <PetForm
-            pet = {pet}
-            setPet = {setPet}
-            errors = {errors}
-            handleSubmit = {handleSubmit}
-            submitButtonLabel = {"Add Pet"} />
+                pet={pet}
+                setPet={setPet}
+                errors={errors}
+                handleSubmit={handleSubmit}
+                submitButtonLabel={"Add Pet"}
+            />
         </div>
     )
 }
