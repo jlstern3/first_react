@@ -1,9 +1,9 @@
 import './App.css';
 import {Router} from '@reach/router';
 import AllPets from './components/AllPets';
-// import PetDetails from './components/PetDetails';
+import PetDetails from './components/PetDetails';
 import AddPet from './components/AddPet';
-// import EditPet from './components/EditPet';
+import EditPet from './components/EditPet';
 
 function App() {
   return (
@@ -12,6 +12,8 @@ function App() {
       <Router>
         <AllPets default path = "/"/>
         <AddPet path="/pets/new" />
+        <PetDetails path = "/pets/:id" />
+        <EditPet path = "/pets/:id/edit" />
       </Router>
     </div>
   );
