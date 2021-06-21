@@ -26,7 +26,7 @@ const PetForm = (props) => {
         <div>
             <h3>Know a pet needing a home?</h3>
             {/* back to dashboard button */}
-            <button onClick = {() => navigate('/')}></button>
+            <button onClick = {() => navigate('/')}>back to home</button>
 
             {/* handleSubmit defined in each parent element due to diff functionality */}
             <form onSubmit={(e) => handleSubmit(e)}>
