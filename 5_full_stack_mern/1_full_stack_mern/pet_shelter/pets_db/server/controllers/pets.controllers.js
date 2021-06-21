@@ -46,7 +46,23 @@ module.exports.getPetDetails = (req,res) => {
 };
 
 //EditPet
-// module.exports.editPet
+module.exports.editPet = (req, res) => {
+    console.log("Inside editPet");
+    console.log(req.params.id);
+    console.log(req.body);
+    Pet.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true
+    })
+        .then((updatedPet)=> {
+            console.log(updatedPet);
+            res.json(updatedPet);
+        })
+        .catch(err => {
+            console.log(err);
+            res.json(err)
+        })
+};
 
 //DeletePet
 // module.exports.deletePet
