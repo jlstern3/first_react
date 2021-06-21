@@ -3,20 +3,14 @@ import axios from 'axios';
 import { Link, navigate } from '@reach/router';
 
 const PetForm = (props) => {
-    // PetForm is the child of AddPet and EditPet
-    // so PetForm takes in props passed down from two above components
-    // since accepting props, need to deconstruct them here in order to use
+
     const { pet, setPet, errors, handleSubmit, submitButtonLabel } = props;
 
-    // write function for input change
     const inputChange = (e) => {
         console.log("Input name:" + e.target.name);
         console.log("Input value:" + e.target.value);
-        // make copy of what's currently stored in pet state
         let newPetObject = { ...pet };
-        // make changes to copy
         newPetObject[e.target.name] = e.target.value;
-        // save changes to copy (set in state)
         setPet(newPetObject);
     }
 
@@ -24,13 +18,10 @@ const PetForm = (props) => {
 
     return (
         <div>
-            <button className="homeBtn" onClick={() => navigate('/')}>back to home</button>
 
             <h3 className="subtitle">Know a pet needing a home?</h3>
-            {/* back to dashboard button */}
-
+            <button className="homeBtn" onClick={() => navigate('/')}>back to home</button>
             <div className="form">
-                {/* handleSubmit defined in each parent element due to diff functionality */}
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <div className="right_side">
                         <div>

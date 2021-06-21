@@ -23,12 +23,12 @@ const PetDetails = (props) => {
 
     return (
         <div>
+            <h3 className = "subtitle">Details about: {pet.name}</h3>
 
-            <button className="back_on_details" onClick={() => navigate('/')}>back to home</button>
+            <button className="homeBtn" onClick={() => navigate('/')}>back to home</button>
             <DeletePet
                 id={props.id}
                 afterDeleteHandler={afterDeleteHandler} />
-            <h3>Details about: {pet.name}</h3>
 
             <div className="details_div">
                 <h4>Pet type: </h4>

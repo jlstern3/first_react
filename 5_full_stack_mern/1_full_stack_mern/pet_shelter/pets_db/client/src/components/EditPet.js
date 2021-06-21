@@ -9,7 +9,6 @@ const EditPet = (props) => {
     const[pet, setPet] = useState({});
     const[errors, setErrors] = useState({});
 
-    // need to grab specific pet and set it in state so we can then edit
     useEffect(()=> {
         axios.get("http://localhost:8000/pets/" + id)
         .then((res) => {
@@ -21,7 +20,6 @@ const EditPet = (props) => {
         })
     }, []);
 
-    // define what to do when form submitted
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.put("http://localhost:8000/pets/" + id + "/edit", pet)
