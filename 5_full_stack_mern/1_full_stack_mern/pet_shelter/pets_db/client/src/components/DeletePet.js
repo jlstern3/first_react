@@ -19,7 +19,7 @@ const DeletePet = (props) => {
     }
 
     return(
-        <button className = "deleteBtn" onClick = {(e)=> deleteHandler(e, id)}>Adopt Pet</button>
+        <button className = "deleteBtn" onClick = {(e)=> deleteHandler(e, id)}>Adopt {props.id.name}</button>
     )
 }
 

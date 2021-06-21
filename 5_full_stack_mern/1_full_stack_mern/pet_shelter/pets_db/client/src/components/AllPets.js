@@ -47,7 +47,7 @@ const AllPets = (props) => {
                             <td>{pet.type}</td>
                 {/* button/link next to each pet for pet details */}
                 {/* button/link next to each pet for edit pet */}
-                            <td><Link to = {"/pets/" + pet._id}>Details | </Link></td>
+                            <td><Link to = {"/pets/" + pet._id}>Details | </Link><Link to = {"/pets/" + pet._id + "/edit"}>Edit</Link> </td>
                         </tr>
                     ))
                     }
