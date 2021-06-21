@@ -28,8 +28,9 @@ const AllPets = (props) => {
 
     return (
         <div>
+            <Link to="/pets/new" className="add_pet">add a pet to the shelter</Link>
+
             <h3>These pets are looking for a good home</h3>
-            <Link to = "/pets/new">add a pet to the shelter</Link>
             <table>
                 <thead>
                     <tr>
@@ -39,17 +40,17 @@ const AllPets = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                {/* map through pets to display all pets */}
+                    {/* map through pets to display all pets */}
                     {
-                    pets.map((pet,index) => (
-                        <tr key={index}>
-                            <td>{pet.name}</td>
-                            <td>{pet.type}</td>
-                {/* button/link next to each pet for pet details */}
-                {/* button/link next to each pet for edit pet */}
-                            <td><Link to = {"/pets/" + pet._id}>Details | </Link><Link to = {"/pets/" + pet._id + "/edit"}>Edit</Link> </td>
-                        </tr>
-                    ))
+                        pets.map((pet, index) => (
+                            <tr key={index}>
+                                <td>{pet.name}</td>
+                                <td>{pet.type}</td>
+                                {/* button/link next to each pet for pet details */}
+                                {/* button/link next to each pet for edit pet */}
+                                <td><Link to={"/pets/" + pet._id}>details | </Link><Link to={"/pets/" + pet._id + "/edit"}>edit</Link> </td>
+                            </tr>
+                        ))
                     }
                 </tbody>
             </table>

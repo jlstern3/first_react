@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios'; 
-import {Link, navigate} from '@reach/router';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link, navigate } from '@reach/router';
 import DeletePet from './DeletePet';
 
 const PetDetails = (props) => {
@@ -12,7 +12,7 @@ const PetDetails = (props) => {
                 console.log(res.data);
                 setPet(res.data);
             })
-            .catch(err => { 
+            .catch(err => {
                 console.log(err);
             });
     }, [props.id]);
@@ -21,20 +21,24 @@ const PetDetails = (props) => {
         navigate("/");
     }
 
-    return(
+    return (
         <div>
-            <h3>Details about: {pet.name}</h3>
-            <Link to = {"/"} >
-                <button>back to home</button>
-            </Link>
+
+            <button className="back_on_details" onClick={() => navigate('/')}>back to home</button>
             <DeletePet
-            id = {props.id}
-            afterDeleteHandler = {afterDeleteHandler} />
- 
-            <div>
-                <h5>Pet type: {pet.type}</h5>
-                <h5>Description: {pet.description}</h5>
-                <h5>Skills: {pet.skill1}, {pet.skill2}, {pet.skill3}</h5>
+                id={props.id}
+                afterDeleteHandler={afterDeleteHandler} />
+            <h3>Details about: {pet.name}</h3>
+
+            <div className="details_div">
+                <h4>Pet type: {pet.type}</h4>
+                <h4>Description: {pet.description}</h4>
+                <h4>Skills: </h4>
+                <ul>
+                    <li>{pet.skill1}</li>
+                    <li>{pet.skill2}</li>
+                    <li>{pet.skill3}</li>
+                </ul>
             </div>
         </div>
     )

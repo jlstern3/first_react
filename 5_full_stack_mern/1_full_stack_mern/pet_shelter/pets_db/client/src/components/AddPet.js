@@ -42,7 +42,6 @@ const AddPet = (props) => {
 
     return (
         <div>
-            <h1>Add Pet</h1>
             <PetForm
                 pet={pet}
                 setPet={setPet}

@@ -6,7 +6,7 @@ const PetForm = (props) => {
     // PetForm is the child of AddPet and EditPet
     // so PetForm takes in props passed down from two above components
     // since accepting props, need to deconstruct them here in order to use
-    const {pet, setPet, errors, handleSubmit, submitButtonLabel} = props;
+    const { pet, setPet, errors, handleSubmit, submitButtonLabel } = props;
 
     // write function for input change
     const inputChange = (e) => {
@@ -24,14 +24,16 @@ const PetForm = (props) => {
 
     return (
         <div>
-            <h3>Know a pet needing a home?</h3>
+            <h3 className = "subtitle">Know a pet needing a home?</h3>
             {/* back to dashboard button */}
-            <button onClick = {() => navigate('/')}>back to home</button>
+            <button className="homeBtn" onClick={() => navigate('/')}>back to home</button>
 
+            <div className="form">
             {/* handleSubmit defined in each parent element due to diff functionality */}
             <form onSubmit={(e) => handleSubmit(e)}>
-                <label>Pet Name: </label>
                 <div>
+                    <label>Pet Name: </label>
+
                     <input
                         type="text"
                         name="name"
@@ -71,43 +73,44 @@ const PetForm = (props) => {
                 </div>
                 <div>
                     <h3>Skills (Optional): </h3>
-                
-                <label>Skill 1: </label>
-                <input
-                    type="text"
-                    name="skill1"
-                    value={pet.skill1}
-                    onChange={(e) => inputChange(e)} />
-                {
-                    errors.skill1 ?
-                        <span className="errors">{errors.skill1.message}</span>
-                        : null
-                }
-                <label>Skill 2: </label>
-                <input
-                    type="text"
-                    name="skill2"
-                    value={pet.skill2}
-                    onChange={(e) => inputChange(e)} />
-                {
-                    errors.skill2 ?
-                        <span className="errors">{errors.skill2.message}</span>
-                        : null
-                }
-                <label>Skill 3: </label>
-                <input
-                    type="text"
-                    name="skill3"
-                    value={pet.skill3}
-                    onChange={(e) => inputChange(e)} />
-                {
-                    errors.skill3 ?
-                        <span className="errors">{errors.skill3.message}</span>
-                        : null
-                }
+
+                    <label>Skill 1: </label>
+                    <input
+                        type="text"
+                        name="skill1"
+                        value={pet.skill1}
+                        onChange={(e) => inputChange(e)} />
+                    {
+                        errors.skill1 ?
+                            <span className="errors">{errors.skill1.message}</span>
+                            : null
+                    }
+                    <label>Skill 2: </label>
+                    <input
+                        type="text"
+                        name="skill2"
+                        value={pet.skill2}
+                        onChange={(e) => inputChange(e)} />
+                    {
+                        errors.skill2 ?
+                            <span className="errors">{errors.skill2.message}</span>
+                            : null
+                    }
+                    <label>Skill 3: </label>
+                    <input
+                        type="text"
+                        name="skill3"
+                        value={pet.skill3}
+                        onChange={(e) => inputChange(e)} />
+                    {
+                        errors.skill3 ?
+                            <span className="errors">{errors.skill3.message}</span>
+                            : null
+                    }
                 </div>
-                <button type = "submit">{submitButtonLabel}</button>
+                <button className="submitBtn" type="submit">{submitButtonLabel}</button>
             </form>
+            </div>
         </div>
     )
 }
