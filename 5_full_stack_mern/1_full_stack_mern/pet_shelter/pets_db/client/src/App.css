@@ -33,11 +33,12 @@ h1{
 
 
 input{
-  width: 100px;
-  padding: 12px 20px;
+  width: 200px;
+  padding: 8px 16px;
   margin: 8px 0px;
-  display: inline-block;
-  border: 1px solid #ccc;
+  display: block;
+  border: 1px solid black;
+
 }
 
 label{
@@ -50,9 +51,9 @@ ul{
   list-style-type: none;
 }
 
-
-
-
+li{
+  padding: 5px;
+}
 
 table {
   font-family: arial, sans-serif;
@@ -62,9 +63,13 @@ table {
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border: 1px solid black;
   text-align: left;
   padding: 8px;
+}
+
+tr:nth-child(even), thead {
+  background-color: #dddddd;
 }
 
 .submitBtn{
@@ -93,14 +98,15 @@ td, th {
 }
 
 button{
-  margin: 0px 10px;
+  /* margin: 0px 10px; */
   padding: 5px 20px;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
   color: white;
   background-color: blue;
   display: inline-block;
+  width: 200px;
+  font-size: 20px;
 }
 
 .form, .details_div{
