@@ -4,6 +4,7 @@ import AllPets from './components/AllPets';
 import PetDetails from './components/PetDetails';
 import AddPet from './components/AddPet';
 import EditPet from './components/EditPet';
+import DeletePet from './components/DeletePet';
 
 function App() {
   return (

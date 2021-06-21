@@ -17,9 +17,20 @@ const PetDetails = (props) => {
             });
     }, [props.id]);
 
+    const afterDeleteHandler = () => {
+        navigate("/");
+    }
+
     return(
         <div>
             <h3>Details about: {pet.name}</h3>
+            <Link to = {"/"} >
+                <button>back to home</button>
+            </Link>
+            <DeletePet
+            id = {props.id}
+            afterDeleteHandler = {afterDeleteHandler} />
+ 
             <div>
                 <h5>Pet type: {pet.type}</h5>
                 <h5>Description: {pet.description}</h5>
